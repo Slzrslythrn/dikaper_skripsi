@@ -13,13 +13,12 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 class DataUserController extends Controller
 {
-    public function index()
-    {
-        Carbon::setLocale('id');
-        $user =  User::all();
-        return view('pages.admin.data-user', compact('user'));
-    }
+    public function index(Request $request)
+{
+    $user = User::orderBy('created_at', 'desc')->paginate(10); // Adjust the number as needed
 
+    return view('pages.admin.data-user', compact('user'));}
+    
     public function buat()
     {
         return view('pages.admin.user.buat');

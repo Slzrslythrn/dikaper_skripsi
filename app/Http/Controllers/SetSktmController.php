@@ -13,8 +13,8 @@ class SetSktmController extends Controller
 
     public function index()
     {
-        $sktm = SetSktm::all();
-        return view('pages.admin.data-sktm', compact('sktm'));
+        $no_sktm = SetSktm::all();
+        return view('pages.admin.data-sktm', compact('no_sktm'));
         // $test = 'test';
         // if ($sktm->isEmpty()) {
         //     $test = "data kosong";
@@ -39,4 +39,16 @@ class SetSktmController extends Controller
         Alert::success('Data berhasil diinputkan.');
         return redirect()->route('data-sktm');
     }
+
+    // Contoh di Controller
+public function show($id)
+{
+    $pasien = Pasien::with('sktm')->find($id); // Pastikan Anda menggunakan ID yang benar
+
+    if (!$pasien) {
+        return redirect()->back()->with('error', 'Pasien tidak ditemukan.');
+    }
+
+    return view('your-view-name', compact('pasien'));
+}
 }

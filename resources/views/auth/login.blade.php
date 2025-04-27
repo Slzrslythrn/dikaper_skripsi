@@ -59,6 +59,15 @@
                                     <div class="text-center">
                                         <button type="submit" class="btn btn-primary btn-block">Masuk</button>
                                     </div>
+                    
+                                    
+                                    <div class="text-center mt-3">
+                                        <a href="{{ url('/') }}" class="btn btn-outline-secondary btn-block d-flex align-items-center justify-content-center">
+                                            <span style="font-size: 1.2rem; margin-right: 8px;">🔙</span> 
+                                            Kembali ke Dashboard
+                                        </a>
+                                    </div>
+                                    
                                 </form>
 
 

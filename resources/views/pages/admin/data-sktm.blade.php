@@ -6,7 +6,7 @@
             <div class="col-12">
                 <div class="card">
                     {{-- @dd($sktm) --}}
-                    @if ($sktm->isNotEmpty())
+                    @if ($no_sktm->isNotEmpty())
                     <div class="card-header">
                         <h3>Nomor SKTM</h3>
                     </div>
@@ -16,7 +16,7 @@
                                 <tr>
                                     <td>Nomor SKTM : </td>
                                     {{-- <td>:</td> --}}
-                                    <td><input type="text" value="{{ $sktm->first()->no_sktm }}" disabled></td>
+                                    <td><input type="text" value="{{ $no_sktm->first()->no_sktm }}" disabled></td>
                                 </tr>
                             </table>
                         </div>

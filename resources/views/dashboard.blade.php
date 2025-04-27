@@ -193,7 +193,7 @@
             @endif
 
 
-            @if (auth()->user()->level == 'superadmin')
+            @if (auth()->user()->level == 'superadmin' || auth()->user()->level == 'admin')
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                 <div class="card bg-white">
                     <div class="card-header">

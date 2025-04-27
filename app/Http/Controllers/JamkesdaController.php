@@ -29,11 +29,9 @@ class JamkesdaController extends Controller
     {
         $tahun = Session::get('tahun'); // Mengambil tahun dari session, default ke tahun sekarang
 
-        $pasienCollection = Pasien::with('rumahsakit')
-            ->where('status', '!=', 'Diterima')
-            ->whereYear('tgl_diterima', $tahun)
-            ->orderByDesc('pasien_id')
-            ->get();
+        $pasienCollection = Pasien::with('rumahsakit', 'pembayaran')
+        ->orderBy('tgl_diterima', 'desc') // Change 'tgl_diterima' to the appropriate date field
+        ->get();
 
         $pasienCollection->each(function ($pasien) {
             if (!$pasien->rumahsakit) {

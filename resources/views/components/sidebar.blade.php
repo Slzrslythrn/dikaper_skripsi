@@ -85,6 +85,7 @@
                             {{-- <span class="badge badge-xs badge-light">10</span> --}}
                         </a>
                     </li>
+                    @if (auth()->user()->level == 'superadmin')
                     <li>
                         <a class="ai-icon" href="{{ route('data-rumahSakit') }}" aria-expanded="false">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -104,6 +105,7 @@
                             {{-- <span class="badge badge-xs badge-light">06</span> --}}
                         </a>
                     </li>
+                    @endif
                     <li>
                         <a class="ai-icon" href="{{ route('data-sktm') }}" aria-expanded="false">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"

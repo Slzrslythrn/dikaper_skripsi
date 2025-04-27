@@ -65,10 +65,12 @@
                                         <label for="firstName">Level</label>
                                         <select name="level" id="level"
                                             class="form-control @error('level') is-invalid @enderror">
+                                            @if (auth()->user()->level == "superadmin")
                                             <option value="superadmin">Superadmin</option>
-                                            {{-- <option value="admin">Admin</option> --}}
+                                            @endif
+                                            <option value="admin">Admin</option>
                                             <option value="rumahsakit">Rumah Sakit</option>
-                                            {{-- <option value="verifaktor">Verifikator</option> --}}
+                                            <!-- <option value="verifaktor">Verifikator</option> -->
                                             <option value="user">User (Masyarakat)</option>
                                         </select>
                                         @error('level')

@@ -25,7 +25,7 @@
                     <div class="card-header align-items-start">
                         <div>
                             <h6>Hallo, {{ auth()->user()->name }}</h6>
-                            <p>Selamat datang di aplikasi <strong>Dikaper</strong></p>
+                            <p>Selamat datang di aplikasi <strong>Dikaper</strong> <br> Anda Login Sebagai <strong>{{ auth()->user()->level }}</strong></p>
                         </div>
                     </div>
                 </div>

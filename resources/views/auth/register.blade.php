@@ -6,7 +6,8 @@
                     <div class="row no-gutters">
                         <div class="col-xl-12">
                             <div class="auth-form">
-                                <h4 class="text-center mb-4">Daftarkan akun anda</h4>
+                            <div class="col-xl-4"><p class="mb-2"><a class="text-primary" href="{{ route('dashboard') }}">kembali</a></p></div>
+                            <h4 class="text-center mb-2">Daftarkan akun anda</h4>
                                 <!-- Validation Errors -->
                                 <x-auth-validation-errors class="mb-4" :errors="$errors" />
                                 <form method="POST" action="{{ route('register') }}">

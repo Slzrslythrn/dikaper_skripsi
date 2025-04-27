@@ -418,7 +418,7 @@
 
 
                                     <div class="mb-3">
-                                        <label for="username">KTP dan KK <span class="text-danger">*</span></label>
+                                        <label for="username">KTP dan KK - Type File <span class="text-danger"> PDF *</span></label>
                                         <div class="input-group">
                                             <input type="file"
                                                 class="form-control @error('ktp_kk') is-invalid @enderror" id="ktp_kk"
@@ -432,8 +432,8 @@
                                     </div>
 
                                     <div class="mb-3">
-                                        <label for="username">SKTM / DINSOS dan Surat Kepolisian <span
-                                                class="text-danger">*</span></label>
+                                        <label for="username">SKTM / DINSOS dan Surat Kepolisian - Type File <span
+                                                class="text-danger">PDF *</span></label>
                                         <div class="input-group">
                                             <input type="file" class="form-control @error('sktm') is-invalid @enderror"
                                                 id="sktm" name="sktm">
@@ -446,8 +446,8 @@
                                     </div>
 
                                     <div class="mb-3">
-                                        <label for="ktp_kk">Surat RS (IGD, RANAP dan ACC RS) <span
-                                                class="text-danger">*</span></label>
+                                        <label for="ktp_kk">Surat RS (IGD, RANAP dan ACC RS) - Type File <span
+                                                class="text-danger">PDF *</span></label>
                                         <div class="input-group">
                                             <input type="file" class="form-control @error('doc') is-invalid @enderror"
                                                 id="doc" name="doc">

@@ -46,7 +46,7 @@
                             </svg>
                             Dashboard</a>
                     </li>
-                    <li>
+                    {{-- <li>
                         <a href="{{ route('log') }}" class="{{ request()->is('log-aktivitas') ? 'text-primary' : '' }}">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                                 width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -59,7 +59,7 @@
                                 </g>
                             </svg>
                             Log Aktivitas</a>
-                    </li>
+                    </li> --}}
                 </ul>
             </div>
             <div class="tab-pane fade {{ request()->is('master*') ? 'show active' : '' }}" id="apps">

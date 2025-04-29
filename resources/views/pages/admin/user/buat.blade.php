@@ -65,12 +65,19 @@
                                         <label for="firstName">Level</label>
                                         <select name="level" id="level"
                                             class="form-control @error('level') is-invalid @enderror">
+<<<<<<< HEAD
+                                            @if (auth()->user()->level == "superadmin")
+                                            <option value="superadmin">Superadmin</option>
+                                            @endif
+                                            <option value="admin">Admin</option>
+=======
                                             @if (auth()->user()->level == 'superadmin')
                                             <option value="superadmin">Superadmin</option>
                                             @endif
                                             <option value="admin">Admin</option>                                            
+>>>>>>> 812762e36a7210938db874f06dd59eeaae5cfead
                                             <option value="rumahsakit">Rumah Sakit</option>
-                                            {{-- <option value="verifaktor">Verifikator</option> --}}
+                                            <!-- <option value="verifaktor">Verifikator</option> -->
                                             <option value="user">User (Masyarakat)</option>
                                         </select>
                                         @error('level')

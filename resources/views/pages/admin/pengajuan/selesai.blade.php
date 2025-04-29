@@ -52,15 +52,12 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="">Rumah Sakit</label>
-                                    <select name="kode_rs" id="kode_rs"
-                                        class="form-control  @error('kode_rs') is-invalid @enderror">
-
-                                        <option value="{{ $rumahsakit->kode }}">{{ $rumahsakit->nama }}</option>
-
-                                        {{-- @foreach ($rumahsakit as $rs)
-
-                                        <option value="{{ $rs->kode }}">{{ $rs->nama }}</option>
-                                        @endforeach --}}
+                                    <select name="kode_rs" id="kode_rs" class="form-control @error('kode_rs') is-invalid @enderror">
+                                        @if($rumahsakit)
+                                            <option value="{{ $rumahsakit->kode }}">{{ $rumahsakit->nama }}</option>
+                                        @else
+                                            <option value="">Tidak ada rumah sakit yang tersedia</option>
+                                        @endif
                                     </select>
                                     @error('kode_rs')
                                     <div class="invalid-feedback">

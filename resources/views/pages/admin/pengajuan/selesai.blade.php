@@ -163,7 +163,7 @@
                                             </td>
                                             <td>
                                                 @if ($row->pembayaran)
-                                                @if ($row->pembayaran->keterangan == 1)
+                                                @if ($row->pembayaran->keterangan == 0)
                                                 Sudah Dibayar
                                                 @else
                                                 Belum Dibayar
@@ -202,13 +202,13 @@
                                                     </a>
                                                     @else
 
-                                                    <a href="{{ route('jamkesda.tagihan.hapus', ['id' => $row->pasien_id]) }}"
+                                                    {{-- <a href="{{ route('jamkesda.tagihan.hapus', ['id' => $row->pasien_id]) }}"
                                                         class="btn btn-danger my-2"
-                                                        onclick="return confirm('Yakin untuk membatalkan data ?')">Batal</a>
+                                                        onclick="return confirm('Yakin untuk membatalkan data ?')">Batal</a> --}}
 
-                                                    <a href="{{ route('jamkesda.tagihan.edit', ['id' => $row->pasien_id]) }}"
+                                                    {{-- <a href="{{ route('jamkesda.tagihan.edit', ['id' => $row->pasien_id]) }}"
                                                         class="btn btn-warning text-white">Edit
-                                                        Pembayaran</a>
+                                                        Pembayaran</a> --}}
                                                     @endif
 
                                                     @else
@@ -242,114 +242,6 @@
                         </div>
                     </div>
 
-                    <!-- Modal Tagihan -->
-                    {{-- <div class="modal fade" id="modalTagihan" tabindex="-1" role="dialog"
-                        aria-labelledby="modalTagihanTitle" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="modalTagihanTitle">Data Tagihan</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <form action="{{ route('jamkesda.tagihan.simpan') }}" method="POST">
-                                        @csrf
-                                        <input type="hidden" name="pasien_id" id="pasien_id">
-                                        <div class="form-group">
-                                            <label for="total_tagihan">Total Tagihan</label>
-                                            <input type="text" class="form-control" name="total_tagihan"
-                                                id="total_tagihan" required>
-                                        </div> --}}
-                                        {{-- <div class="form-group">
-                                            <label for="total_tagihan">Tanggal Pembayaran Tagihan</label>
-                                            <input type="date" class="form-control" name="tgl_pembayaran_tagihan"
-                                                id="tgl_pembayaran_tagihan" required>
-                                        </div> --}}
-                                        {{-- <div class="form-group">
-                                            <label for="total_pembayaran">Total Pembayaran</label>
-                                            <input type="text" class="form-control" name="total_pembayaran"
-                                                id="total_pembayaran" required>
-                                        </div> --}}
-                                        {{-- <div class="form-group">
-                                            <label for="keterangan">Keterangan</label>
-                                            <select class="form-control" id="keterangan" name="keterangan" required>
-                                                <option value="1">Sudah Dibayar</option>
-                                                <option value="0">Belum Dibayar</option>
-                                            </select>
-                                        </div>
-
-                                        <h5>Inacbgs</h5> --}}
-                                        {{-- <div class="form-group">
-                                            <label for="keterangan">Jenis RS</label>
-                                            <select class="form-control" id="jenis_rs" name="jenis_rs" required>
-                                                <option value="">Pilih Jenis RS</option>
-                                                @foreach ($inacbgs->unique('jenis_rs') as $item)
-                                                <option value="{{ $item->jenis_rs }}">{{ $item->jenis_rs }}</option>
-                                                @endforeach
-                                            </select>
-                                        </div> --}}
-
-                                        {{-- <div class="form-group">
-                                            <label for="keterangan">Diagnosa</label>
-                                            <select class="form-control" id="diagnosa" name="diagnosa" required
-                                                disabled>
-                                                <option value="">Pilih Diagnosa</option>
-                                            </select>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="keterangan">Tarif</label>
-                                            <select class="form-control" id="tarif" name="tarif" required disabled>
-                                                <option value="">Pilih Tarif</option>
-                                            </select>
-                                        </div>
-
-                                        <button type="submit" class="btn btn-primary">Submit</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div> --}}
-
-                    <!-- Modal Pembayaran -->
-                    {{-- <div class="modal fade" id="modalPembayaran" tabindex="-1" role="dialog"
-                        aria-labelledby="modalPembayaranTitle" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="modalPembayaranTitle">Data Pembayaran</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <form action="{{ route('jamkesda.pembayaran.simpan') }}" method="POST">
-                                        @csrf
-                                        <input type="hidden" name="pasien_id_pembayaran" id="pasien_id_pembayaran">
-                                        <div class="form-group">
-                                            <label for="total_pembayaran">Total Pembayaran</label>
-                                            <input type="text" class="form-control" name="total_pembayaran"
-                                                id="total_pembayaran" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="tgl_pembayaran">Tanggal Pembayaran</label>
-                                            <input type="date" class="form-control" name="tgl_pembayaran"
-                                                id="tgl_pembayaran" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="keterangan">Keterangan</label>
-                                            <textarea class="form-control" name="keterangan" id="keterangan" rows="3"
-                                                required></textarea>
-                                        </div>
-                                        <button type="submit" class="btn btn-primary">Submit</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div> --}}
-
                 </div>
             </div>
         </div>
@@ -367,50 +259,3 @@
         $("#pasien_id_pembayaran").val(pasienIdPembayaran);
     });
 </script>
-{{--
-<script>
-    $(document).ready(function() {
-    $('#jenis_rs').change(function() {
-        var jenis_rs = $(this).val();
-        $('#diagnosa').prop('disabled', true);
-        $('#tarif').prop('disabled', true);
-        $('#diagnosa').html('<option value="">Pilih Diagnosa</option>');
-        $('#tarif').html('<option value="">Pilih Tarif</option>');
-        
-        if (jenis_rs) {
-            $.ajax({
-                url: '{{ route("getDiagnosaByJenisRs") }}', // Route untuk mengambil data berdasarkan jenis_rs
-                type: 'GET',
-                data: { jenis_rs: jenis_rs },
-                success: function(data) {
-                    if (data.length > 0) {
-                        $('#diagnosa').prop('disabled', false);
-                        $.each(data, function(key, value) {
-                            $('#diagnosa').append('<option value="' + value.id + '">' + value.kode + ' || ' + value.deskrpsi + '</option>');
-                        });
-                    }
-                }
-            });
-        }
-    });
-
-    $('#diagnosa').change(function() {
-        var id = $(this).val();
-        $('#tarif').prop('disabled', true);
-        $('#tarif').html('<option value="">Pilih Tarif</option>');
-        
-        if (id) {
-            $.ajax({
-                url: '{{ route("getTarifByDiagnosa") }}', // Route untuk mengambil tarif berdasarkan diagnosa
-                type: 'GET',
-                data: { id: id },
-                success: function(data) {
-                    $('#tarif').prop('disabled', false);
-                    $('#tarif').append('<option value="' + data.tarif + '" selected >' + data.tarif + '</option>');
-                }
-            });
-        }
-    });
-});
-
-</script> --}}

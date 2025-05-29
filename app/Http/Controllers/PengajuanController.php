@@ -22,17 +22,6 @@ class PengajuanController extends Controller
     {
         Carbon::setLocale('id');
         $id = auth()->user()->id;
-        // $pasien = Pasien::has('persyaratan')->with('rumahsakit')->where('no_ktp', auth()->user()->nik)->get();
-        // $rumahsakit = Rumahsakit::whereHas('pasien', function ($query) use ($nik) {
-        //     $query->where('no_ktp', $nik)->has('persyaratan');
-        // })->with('pasien')->get();
-
-        // $pasien = Pasien::with(['rumahsakit', 'kelurahan.kecamatan'])
-        //     ->where('no_ktp', auth()->user()->nik)
-        //     ->has('persyaratan')
-        //     ->orderByDesc('pasien_id')
-        //     ->get();
-
         // Ambil data pasien dengan relasi rumahsakit dan kelurahan->kecamatan
         $pasienCollection = Pasien::with(['rumahsakit', 'kelurahan.kecamatan'])
             ->where('users_id', $id)
@@ -61,26 +50,6 @@ class PengajuanController extends Controller
 
     public function buat()
     {
-        // $no_ktp = auth()->user()->nik;
-        // $pasienCeks = Pasien::where('no_ktp', $no_ktp)->where('status', '!=', 'Draft')->count();
-
-        // kondisi jika user sudah pernah isi form meneruskan setelah draft
-        // if ($pasienCeks > 0) {
-        //     Alert::error('Anda sudah membuat pengajuan');
-        //     return redirect()->route('pengajuan');
-        // }
-
-        // kondisi jika user sudah pernah isi form dengan status masih draft
-        // $pasien = Pasien::where('no_ktp', auth()->user()->nik)->where('status', 'Draft')->first();
-
-        // jika sudah upload berkas
-        // $persyaratan = Pasien::where('no_ktp', $no_ktp)->where('status', '!=', 'Draft')->has('persyaratan')->count();
-        // dd($pasienCeks);
-        // if ($persyaratan > 0) {
-        //     Alert::error('Anda sudah membuat pengajuan');
-        //    return redirect()->route('pengajuan');
-        //}
-        // end
 
 
         $pasien = (object) [

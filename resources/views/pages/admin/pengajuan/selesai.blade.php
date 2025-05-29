@@ -201,14 +201,6 @@
                                                             data-target="#modalTagihan" --}}>Pembayaran </button>
                                                     </a>
                                                     @else
-
-                                                    {{-- <a href="{{ route('jamkesda.tagihan.hapus', ['id' => $row->pasien_id]) }}"
-                                                        class="btn btn-danger my-2"
-                                                        onclick="return confirm('Yakin untuk membatalkan data ?')">Batal</a> --}}
-
-                                                    {{-- <a href="{{ route('jamkesda.tagihan.edit', ['id' => $row->pasien_id]) }}"
-                                                        class="btn btn-warning text-white">Edit
-                                                        Pembayaran</a> --}}
                                                     @endif
 
                                                     @else
@@ -259,3 +251,50 @@
         $("#pasien_id_pembayaran").val(pasienIdPembayaran);
     });
 </script>
+{{--
+<script>
+    $(document).ready(function() {
+    $('#jenis_rs').change(function() {
+        var jenis_rs = $(this).val();
+        $('#diagnosa').prop('disabled', true);
+        $('#tarif').prop('disabled', true);
+        $('#diagnosa').html('<option value="">Pilih Diagnosa</option>');
+        $('#tarif').html('<option value="">Pilih Tarif</option>');
+        
+        if (jenis_rs) {
+            $.ajax({
+                url: '{{ route("getDiagnosaByJenisRs") }}', // Route untuk mengambil data berdasarkan jenis_rs
+                type: 'GET',
+                data: { jenis_rs: jenis_rs },
+                success: function(data) {
+                    if (data.length > 0) {
+                        $('#diagnosa').prop('disabled', false);
+                        $.each(data, function(key, value) {
+                            $('#diagnosa').append('<option value="' + value.id + '">' + value.kode + ' || ' + value.deskrpsi + '</option>');
+                        });
+                    }
+                }
+            });
+        }
+    });
+
+    $('#diagnosa').change(function() {
+        var id = $(this).val();
+        $('#tarif').prop('disabled', true);
+        $('#tarif').html('<option value="">Pilih Tarif</option>');
+        
+        if (id) {
+            $.ajax({
+                url: '{{ route("getTarifByDiagnosa") }}', // Route untuk mengambil tarif berdasarkan diagnosa
+                type: 'GET',
+                data: { id: id },
+                success: function(data) {
+                    $('#tarif').prop('disabled', false);
+                    $('#tarif').append('<option value="' + data.tarif + '" selected >' + data.tarif + '</option>');
+                }
+            });
+        }
+    });
+});
+
+</script> --}}

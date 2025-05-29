@@ -106,6 +106,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
             Route::get('/download/{id}/diterima', [App\Http\Controllers\JamkesdaController::class, 'downloadDiterima'])->name('jamkesda.download.diterima');
 
             Route::get('/selesai', [App\Http\Controllers\PengajuanController::class, 'selesai'])->name('pengajuan.selesai');
+
         });
 
         Route::post('/export', [App\Http\Controllers\JamkesdaController::class, 'export'])->name('jamkesda.export');

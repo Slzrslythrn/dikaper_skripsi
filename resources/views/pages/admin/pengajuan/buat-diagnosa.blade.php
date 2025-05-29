@@ -191,7 +191,7 @@
                                         @enderror
                                     </div>
 
-                                    {{-- <div class="mb-3">
+                                    <div class="mb-3">
                                         <label for="country">Rumah Sakit</label>
                                         <select class="d-block form-control @error('kode_rs') is-invalid @enderror"
                                             name="kode_rs">
@@ -214,7 +214,7 @@
                                             {{ $message }}
                                         </div>
                                         @enderror
-                                    </div> --}}
+                                    </div>
 
                                     <div class="mb-3">
                                         <label for="firstName">Tanggal Mulai Rawat</label>
@@ -271,9 +271,23 @@
                                     </div>
 
 
+                                    {{-- <div class="mb-3">
+                                        <label for="firstName">Tanggal Aktif VA BPJS</label>
+                                        <input type="date"
+                                            class="form-control @error('tgl_aktif_va') is-invalid @enderror"
+                                            name="tgl_aktif_va" value="{{ $pasien->tgl_aktif_va }}">
+                                        @error('tgl_aktif_va')
+                                        <div class="invalid-feedback" style="width: 100%;">
+                                            {{ $message }}
+                                        </div>
+                                        @enderror
+                                    </div> --}}
+
                                     <div class="mb-3">
                                         <label for="firstName">Status kepesertaan JKN sebelumnya</label>
-                                
+                                        {{-- <input type="text"
+                                            class="form-control @error('status_kepersertaan') is-invalid @enderror"
+                                            name="status_kepersertaan" value="{{ $pasien->status_kepersertaan }}"> --}}
 
                                         <select
                                             class="d-block w-100 form-control @error('status_kepersertaan') is-invalid @enderror"
